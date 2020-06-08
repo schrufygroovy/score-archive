@@ -8,6 +8,7 @@ import {
   incrementAsync
 } from '../store/counter/actions';
 import { AppState } from '../store/types';
+import parseImageAsync from '../store/image-parsing/actions';
 
 function mapStateToProps(state: AppState) {
   return {
@@ -21,7 +22,7 @@ function mapDispatchToProps(dispatch: Dispatch) {
       increment,
       decrement,
       incrementIfOdd,
-      incrementAsync
+      incrementAsync: parseImageAsync
     },
     dispatch
   );
