@@ -1,7 +1,8 @@
-import { GetState, Dispatch } from '../reducers/types';
+import { Dispatch as ReduxDispatch, Action } from 'redux';
+import { GetState } from '../types';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from './types';
 
-export const INCREMENT_COUNTER = 'INCREMENT_COUNTER';
-export const DECREMENT_COUNTER = 'DECREMENT_COUNTER';
+export type Dispatch = ReduxDispatch<Action<string>>;
 
 export function increment() {
   return {

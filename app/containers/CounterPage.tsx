@@ -6,10 +6,10 @@ import {
   decrement,
   incrementIfOdd,
   incrementAsync
-} from '../actions/counter';
-import { counterStateType } from '../reducers/types';
+} from '../store/counter/actions';
+import { AppState } from '../store/types';
 
-function mapStateToProps(state: counterStateType) {
+function mapStateToProps(state: AppState) {
   return {
     counter: state.counter
   };
