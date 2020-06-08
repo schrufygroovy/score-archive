@@ -3,6 +3,7 @@ import path from 'path';
 
 const worker = createWorker({
   cachePath: path.join(__dirname, 'resources', 'lang-data'),
+  cacheMethod: 'readOnly',
   logger: m => console.log(m)
 });
 
