@@ -7,14 +7,24 @@ const worker = createWorker({
   logger: m => console.log(m)
 });
 
-export default async function parseImage() {
+let isloaded = false;
+
+async function loadWorker() {
+  if (isloaded) {
+    return;
+  }
   await worker.load();
   await worker.loadLanguage('eng');
   await worker.initialize('eng');
+  isloaded = true;
+}
+
+export default async function parseImage() {
+  await loadWorker();
   const {
     data: { text }
   } = await worker.recognize(path.join(__dirname, 'resources', 'testocr.png'));
   console.log(text);
-  await worker.terminate();
+  // do not terminate: await worker.terminate();
   return text;
 }
